@@ -14,10 +14,6 @@ This project is an interactive world population map built using **R, Shiny, ggpl
    ```r
    install.packages(c("shiny", "ggplot2", "plotly", "dplyr", "maps", "rvest", "magrittr"))
 
-
-
-
-
    git clone https://github.com/yourusername/world-population-map.git
 
    shiny::runApp("app.R")
