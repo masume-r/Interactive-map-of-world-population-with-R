@@ -1,4 +1,4 @@
-#🌍 Interactive World Population Map
+# 🌍 Interactive World Population Map
 
 📊 An interactive map visualizing global population data in a user-friendly way!
 
