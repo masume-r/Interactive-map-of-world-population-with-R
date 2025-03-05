@@ -48,6 +48,6 @@ Understanding population distribution across the world is crucial for:
    This project leverages the power of Shiny for interactivity, ggplot2 for mapping, and Plotly for an interactive user experience
 
 🎥 Watch how the app works! Click play below:
-[![Watch Demo](masume-r-patch-1/demo_thumbnail.png)](https://github.com/masume-r/Interactive-map-of-world-population-with-R/releases/download/v2.0-beta/inmap.mp4)
+[![Watch Demo]](https://github.com/masume-r/Interactive-map-of-world-population-with-R/releases/download/v2.0-beta/inmap.mp4)
 
 
