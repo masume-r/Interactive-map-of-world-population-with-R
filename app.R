@@ -11,28 +11,28 @@ library(magrittr)
 url <- 'https://www.worldometers.info/world-population/population-by-country/'
 web_data <- read_html(url)
 
-# استخراج جدول جمعیت
+# Extracting the population table
 population_table <- web_data %>%
   html_node('table') %>%
   html_table(fill = TRUE)
 
-# تغییر نام ستون‌ها
+# Rename columns
 colnames(population_table) <- c("Rank", "Country", "Population", "Yearly_Change", "Net_Change",
                                 "Density", "Land_Area", "Migrants", "Fertility_Rate", "Median_Age",
                                 "Urban_Pop", "World_Share")
 
-# تبدیل جمعیت به عدد صحیح
+# Convert population to integer
 population_table <- population_table %>%
   mutate(Population = as.numeric(gsub(",", "", Population)))
 
-# دریافت داده‌های نقشه
+# Get map data
 world_map <- map_data("world")
 
-# ترکیب داده‌های نقشه با جمعیت
+# Combining map data with population
 world_map <- world_map %>%
   left_join(population_table, by = c("region" = "Country"))
 
-# نمایش "Data Not Available" برای کشورهایی که جمعیت ندارند
+# Showing "Data Not Available" for countries that have no population
 world_map <- world_map %>%
   mutate(
     Population = as.numeric(Population),
@@ -41,7 +41,7 @@ world_map <- world_map %>%
                         paste0("Country: ", region, "<br>Population: ", formatC(Population, format = "f", big.mark = ",", digits = 0)))
   )
 
-# تعریف کشورها بر اساس قاره‌ها
+# Defining countries based on continents
 asia_countries <- c(
   "Afghanistan", "Armenia", "Azerbaijan", "Bahrain", "Bangladesh", "Bhutan", "Brunei",
   "Cambodia", "China", "Cyprus", "Georgia", "India", "Indonesia", "Iran", "Iraq", "Israel",
@@ -89,7 +89,7 @@ oceania_countries <- c(
   "Palau", "Papua New Guinea", "Samoa", "Solomon Islands", "Tonga", "Tuvalu", "Vanuatu"
 )
 
-# افزودن ستون قاره‌ها به داده‌ها
+# Add a continent column to the data
 world_map <- world_map %>%
   mutate(Continent = case_when(
     region %in% asia_countries ~ "Asia",
@@ -100,7 +100,7 @@ world_map <- world_map %>%
     TRUE ~ "Other"
   ))
 
-# تعریف اپلیکیشن Shiny
+#  Shiny
 ui <- fluidPage(
   titlePanel("Interactive World Population Map"),
   sidebarLayout(
@@ -124,7 +124,7 @@ server <- function(input, output) {
       world_map %>% filter(Continent == input$continent)
     }
     
-    # رسم نقشه
+    # Drawing a map
     p <- ggplot() +
       geom_polygon(data = filtered_data, aes(x = long, y = lat, group = group, fill = Population, text = hover_text),
                    color = "black", size = 0.3) +  
@@ -140,7 +140,7 @@ server <- function(input, output) {
            x = "Longitude", y = "Latitude",
            fill = "Population (people)")
     
-    # تبدیل به نقشه تعاملی با `plotly`
+    # Convert to interactive map with `plotly`
     ggplotly(p, tooltip = "text", width = 1200, height = 800) %>%
       layout(
         hoverlabel = list(bgcolor = "white"),  
@@ -162,5 +162,5 @@ server <- function(input, output) {
   })
 }
 
-# اجرای برنامه
+# run
 shinyApp(ui, server)
