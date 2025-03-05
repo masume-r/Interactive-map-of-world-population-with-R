@@ -42,21 +42,52 @@ world_map <- world_map %>%
   )
 
 # تعریف کشورها بر اساس قاره‌ها
-asia_countries <- c("China", "India", "Indonesia", "Pakistan", "Bangladesh",
-                    "Japan", "Philippines", "Vietnam", "Turkey", "Iran",
-                    "Thailand", "Myanmar", "South Korea", "Iraq", "Afghanistan",
-                    "Saudi Arabia", "Uzbekistan", "Malaysia", "Yemen", "Nepal")
+asia_countries <- c(
+  "Afghanistan", "Armenia", "Azerbaijan", "Bahrain", "Bangladesh", "Bhutan", "Brunei",
+  "Cambodia", "China", "Cyprus", "Georgia", "India", "Indonesia", "Iran", "Iraq", "Israel",
+  "Japan", "Jordan", "Kazakhstan", "Kuwait", "Kyrgyzstan", "Laos", "Lebanon", "Malaysia",
+  "Maldives", "Mongolia", "Myanmar", "Nepal", "North Korea", "Oman", "Pakistan", "Palestine",
+  "Philippines", "Qatar", "Saudi Arabia", "Singapore", "South Korea", "Sri Lanka", "Syria",
+  "Tajikistan", "Thailand", "Timor-Leste", "Turkey", "Turkmenistan", "United Arab Emirates",
+  "Uzbekistan", "Vietnam", "Yemen"
+)
 
-africa_countries <- c("Nigeria", "Ethiopia", "Egypt", "DR Congo", "Tanzania",
-                      "South Africa", "Kenya", "Uganda", "Algeria", "Sudan")
 
-america_countries <- c("United States", "Brazil", "Mexico", "Canada", "Argentina",
-                       "Colombia", "Chile", "Peru", "Venezuela", "Ecuador")
+africa_countries <- c(
+  "Algeria", "Angola", "Benin", "Botswana", "Burkina Faso", "Burundi", "Cabo Verde",
+  "Cameroon", "Central African Republic", "Chad", "Comoros", "Democratic Republic of the Congo",
+  "Djibouti", "Egypt", "Equatorial Guinea", "Eritrea", "Eswatini", "Ethiopia", "Gabon",
+  "Gambia", "Ghana", "Guinea", "Guinea-Bissau", "Ivory Coast", "Kenya", "Lesotho", "Liberia",
+  "Libya", "Madagascar", "Malawi", "Mali", "Mauritania", "Mauritius", "Morocco", "Mozambique",
+  "Namibia", "Niger", "Nigeria", "Republic of the Congo", "Rwanda", "São Tomé and Príncipe",
+  "Senegal", "Seychelles", "Sierra Leone", "Somalia", "South Africa", "South Sudan", "Sudan",
+  "Tanzania", "Togo", "Tunisia", "Uganda", "Zambia", "Zimbabwe"
+)
 
-europe_countries <- c("Russia", "Germany", "United Kingdom", "France", "Italy",
-                      "Spain", "Ukraine", "Poland", "Netherlands", "Belgium")
 
-oceania_countries <- c("Australia", "New Zealand", "Papua New Guinea", "Fiji", "Samoa")
+america_countries <- c(
+  "Canada", "United States", "Mexico", 
+  "Belize", "Costa Rica", "El Salvador", "Guatemala", "Honduras", "Nicaragua", "Panama",
+  "Argentina", "Bolivia", "Brazil", "Chile", "Colombia", "Ecuador", "Guyana", "Paraguay",
+  "Peru", "Suriname", "Uruguay", "Venezuela"
+)
+
+
+europe_countries <- c(
+  "Albania", "Andorra", "Armenia", "Austria", "Azerbaijan", "Belarus", "Belgium",
+  "Bosnia and Herzegovina", "Bulgaria", "Croatia", "Cyprus", "Czech Republic", "Denmark",
+  "Estonia", "Finland", "France", "Georgia", "Germany", "Greece", "Hungary", "Iceland",
+  "Ireland", "Italy", "Kazakhstan", "Kosovo", "Latvia", "Liechtenstein", "Lithuania",
+  "Luxembourg", "Malta", "Moldova", "Monaco", "Montenegro", "Netherlands", "North Macedonia",
+  "Norway", "Poland", "Portugal", "Romania", "Russia", "San Marino", "Serbia", "Slovakia",
+  "Slovenia", "Spain", "Sweden", "Switzerland", "Turkey", "Ukraine", "United Kingdom",
+  "Vatican City"
+)
+
+oceania_countries <- c(
+  "Australia", "Fiji", "Kiribati", "Marshall Islands", "Micronesia", "Nauru", "New Zealand",
+  "Palau", "Papua New Guinea", "Samoa", "Solomon Islands", "Tonga", "Tuvalu", "Vanuatu"
+)
 
 # افزودن ستون قاره‌ها به داده‌ها
 world_map <- world_map %>%
