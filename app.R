@@ -133,7 +133,7 @@ server <- function(input, output) {
                                                       median(filtered_data$Population, na.rm = TRUE),
                                                       mean(filtered_data$Population, na.rm = TRUE),
                                                       max(filtered_data$Population, na.rm = TRUE))),
-                           na.value = "gray") +
+                           na.value = "gray", labels = scales::label_number(scale_cut = scales::cut_short_scale()))  +
       coord_fixed(1.3) +  
       theme_minimal(base_size = 14) +  
       labs(title = paste("World Population -", input$continent),
